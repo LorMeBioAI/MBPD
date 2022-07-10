@@ -1,22 +1,26 @@
-BacPD: Open-view bacterial pathogen detection for One Health perspective
-Contents
-Introduction
-Requirements
-Basic Usage 
-Example Dataset
+# BacPD: Open-view bacterial pathogen detection for One Health perspective
 
-Introduction
+## Contents
+
+- [Introduction](#introduction)
+- [Requirement](#requirement)
+- [Basic Usage](#basic-usage)
+- [Example dataset](#example-dataset)
+
+## Introduction
+
 BacPD is a bioinformatics analysis pipeline used for the open-view defection of bacterial pathogens based on the 16S rDNA amplicon sequencing. We first developed a curated reference database of bacterial pathogens (BacPD database) from various literatures and databases, such as Bull et al. (2010, 2012, 2014), PATRIC, 16SPIP, FAPROTAX, etc. BacPD database compress 72685 16S rDNA gene sequences of animal, plant and zoonotic pathogen belonging to 18 phyla, 29 classes, 77 orders, 169 families, 440 genera and 1986 species. Clean data of 16S rDNA sequencing of both environmental and biological samples are processed using DADA2 pipeline to obtain the sequences of the amplicon sequence variants (ASVs). The cleaned ASVs sequences are aligned to the BacPD reference database using UCLUST algorithm with an appropriate similarity according to the variable region of 16S rDNA sequencing.
-Requirements
+
+## Requirements
+
 1.	Python 3
 2.	QIIME1
 3.	QIIME2
 4.	Biom
 5.	R environment with packages (Rcpp, crayon, withr, ggplot2, BiocGenerics, S4Vectors, IRanges, XVector, GenomeInfoDb, matrixStats, Biobase, Matrix, latticeExtra, reshape2, dada2).
 
-BacPD
+## Basic Usage
 
-Basic Usage
 Using python3 BacPD.py -h to see the help page
 
 optional arguments:
@@ -42,7 +46,8 @@ The output contains fasta file of ASV and table file of pathogenic taxonomy.
 asv_taxa_table.xls: table files with taxa as rows and sample as columns.
 asv.fa: the fasta file of ASVs
 
-Example Dataset
+## Example Dataset
+
 Here, we provide a demo dataset profiling results of 20 samples.
 python3 BacPD.py --file example/raw.fq.list20 --pwd new --similarity 0.9
 cd shell/
