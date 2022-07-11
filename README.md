@@ -52,6 +52,6 @@ Here, we provide a demo dataset profiling results of 20 samples.
 You can download the data in the link below, then unzip them.
 Link：https://pan.baidu.com/s/1ceS9FzdNqvM-W7WORNAmtg code：436d 
 
-python3 BacPD.py --file example/raw.fq.list20 --pwd new --similarity 0.9
+python3 BacPD.py --file example/raw.fq.list --pwd new --similarity 0.9
 cd shell/
 sh S01.1.pathogen.sh
