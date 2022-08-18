@@ -9,7 +9,7 @@
 
 ## Introduction
 
-MBPD is a bioinformatics analysis pipeline used for the open-view defection of bacterial pathogens based on the 16S rRNA gene sequencing. We first developed a curated reference database of bacterial pathogens (MBPD database) from various literatures and databases, such as Bull et al. (2010, 2012, 2014), PATRIC, 16SPIP, FAPROTAX, etc. MBPD database consists of 72685 16S full-length sequences of animal, plant and zoonotic pathogen belonging to 18 phyla, 29 classes, 77 orders, 169 families, 440 genera and 1986 species. Clean data of 16S sequencing of both environmental and biological samples is processed using DADA2 pipeline  to obtain amplicon sequence variants (ASVs). Finally, sequences of ASV are aligned to the MBPD reference database using UCLUST algorithm with an optimal similarity threshold according to the full-length or variable sub-region of 16S.
+MBPD is a bioinformatics analysis pipeline used for the multiple defection of bacterial pathogens based on the 16S rRNA gene sequencing. We first developed a curated reference database of bacterial pathogens (MBPD database) from various literatures and databases, such as Bull et al. (2010, 2012, 2014), PATRIC, 16SPIP, FAPROTAX, etc. MBPD database consists of 72685 16S full-length sequences of animal, plant and zoonotic pathogen belonging to 18 phyla, 29 classes, 77 orders, 169 families, 440 genera and 1986 species. Clean data of 16S sequencing of both environmental and biological samples is processed using DADA2 pipeline  to obtain amplicon sequence variants (ASVs). Finally, sequences of ASV are aligned to the MBPD reference database using UCLUST algorithm with an optimal similarity threshold according to the full-length or variable sub-region of 16S.
 
 ## Requirements
 
@@ -27,10 +27,11 @@ optional arguments:
   -h, --help	show the help page of MBPD
   --file FILE	Sample table
   --pwd PWD 	Output path, default is current path
-  --similarity SIMILARITY	The similarity of uclust, default=0.9
+  --similarity SIMILARITY	The similarity of uclust,sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.9.
 
 Step 1: manually create a sample table 
---file: a sample table as an input, e.g., raw.fq.list, the separator is line break. Here is an example, fastq files are primer, barcode and low-quality have trimmed 16S rDNA sequences.
+--file: a sample table as an input, e.g., raw.fq.list, the separator is line break. Here is an example, fastq files are sequences removed primer and barcode)
+.
 Sample1	/path/valid/Sample1.fq
 Sample2	/path/valid/Sample2.fq
 
@@ -38,7 +39,7 @@ Step 2: choose the output path
 --pwd Output path, default is current path
 
 Step 3: choose the appropriate threshold for pathogen identification
---similarity: The threshold of taxonomy classification based on uclust algorithm, default=0.9, the similarity threshold is (0, 1).
+--similarity: The threshold of taxonomy classification based on uclust algorithm,sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.9, the similarity threshold is (0, 1).
 
 Using following command, and run the S01.1.pathogen.sh script in shell folder. 
 python3 MBPD.py --file raw.fq.list --pwd new --similarity 0.9
@@ -48,7 +49,7 @@ asv.fa: the fasta file of ASVs
 
 ## Example Dataset
 
-Here, we provide a demo dataset profiling results of 20 samples.
+Here, we provide a 16S rDNA V4 region data of 20 samples.
 You can download the data in the link below, then unzip them.
 Link：https://pan.baidu.com/s/1ceS9FzdNqvM-W7WORNAmtg code：436d 
 
