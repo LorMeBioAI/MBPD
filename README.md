@@ -21,7 +21,7 @@ MBPD is a bioinformatics analysis pipeline used for the multiple defection of ba
 
 ## Basic Usage
 
-Using python3 MBPD.py -h to see the help page
+Using python3 MBPD.py -h<b> to see the help page
 
 optional arguments:
   -h, --help	show the help page of MBPD
