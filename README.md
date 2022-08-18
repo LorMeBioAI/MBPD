@@ -1,4 +1,4 @@
-# MBPD: Open-view multiple bacterial pathogen detection for One Health perspective
+# MBPD: Multiple bacterial pathogen detection for One Health perspective
 
 ## Contents
 
