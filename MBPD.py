@@ -11,7 +11,7 @@ import subprocess
 parser = argparse.ArgumentParser(description='BacPD')
 parser.add_argument('--file',help='Sample table')
 parser.add_argument('--pwd', type=str, default='./',help='Output path, default is current path')
-parser.add_argument('--similarity', type=float, default=0.9,help='The similarity of uclust, default=0.9')
+parser.add_argument('--similarity', type=float, default=0.9,help='Sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.9')
 args = parser.parse_args()
 
 
@@ -156,7 +156,7 @@ sed -i 's/"//g' asv_table.tmp.xls
 rm asv_table.tmp.xls
 
 biom convert -i asv_table.xls -o asv_table.biom --table-type "OTU table" --to-json
-{abs_bin}/assign_taxonomy.py -m uclust -i asv_rep.fasta --similarity {similarity} -r {abs_db}/0524pathogen.fasta -t {abs_db}/0524pathogen.tax -o assign_taxonomy
+{abs_bin}/assign_taxonomy.py -m uclust -i asv_rep.fasta --similarity {similarity} -r {abs_db}/pathogen.fasta -t {abs_db}/pathogen.tax -o assign_taxonomy
 {abs_bin}/taxaTable_byAss.pl asv_table.xls assign_taxonomy/asv_rep_tax_assignments.txt asv_taxa_table.xls
 biom convert -i asv_taxa_table.xls -o asv_taxa_table.biom --process-obs-metadata taxonomy --table-type "OTU table" --to-json
 rm -r assign_taxonomy
