@@ -32,8 +32,8 @@ optional arguments:
 Step 1: manually create a sample table 
 --file: a sample table as an input, e.g., raw.fq.list, the separator is line break. Here is an example, fastq files are sequences removed primer and barcode)
 
- Sample1 /path/valid/Sample1.fq
- Sample2 /path/valid/Sample2.fq
+#Sample1 /path/valid/Sample1.fq
+#Sample2 /path/valid/Sample2.fq
 
 Step 2: choose the output path
 --pwd Output path, default is current path
