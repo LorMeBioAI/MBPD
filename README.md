@@ -1,4 +1,4 @@
-# MBPD: Multiple bacterial pathogen detection for One Health perspective
+# MBPD: A multiple bacterial pathogen detection pipeline for One Health practices
 
 ## Contents
 
