@@ -15,7 +15,7 @@ library(latticeExtra)
 library(reshape2)
 library(dada2)
 ##----filenames-------------
-path <- "/mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/BacPD/new/00.Data"
+path <- "/mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/new/00.Data"
 fns <- list.files(path, pattern=".fq.gz")
 sample.names <- sapply(strsplit(basename(fns), "[.]"), `[`, 1)
 sample.names
