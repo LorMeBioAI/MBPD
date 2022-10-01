@@ -11,7 +11,7 @@ import subprocess
 parser = argparse.ArgumentParser(description='BacPD')
 parser.add_argument('--file',help='Sample table')
 parser.add_argument('--pwd', type=str, default='./',help='Output path, default is current path')
-parser.add_argument('--similarity', type=float, default=0.9,help='Sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.9')
+parser.add_argument('--similarity', type=float, default=0.9,help='Sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.8')
 args = parser.parse_args()
 
 
