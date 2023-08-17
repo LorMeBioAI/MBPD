@@ -19,6 +19,7 @@ MBPD is a bioinformatics analysis pipeline used for the multiple defection of ba
 4.	Biom
 5.	R environment with packages (Rcpp, crayon, withr, ggplot2, BiocGenerics, S4Vectors, IRanges, XVector, GenomeInfoDb, matrixStats, Biobase, Matrix, latticeExtra, reshape2, dada2).
 
+Note: To ensure  the script works properly, you need to install qiime1 in the default environment and install qimme2 in another conda environment, and conda activate qiime2 to run the commands related to ASVs and taxonomic assignment.
 ## Basic Usage
 
 Using python3 MBPD.py -h to see the help page
