@@ -154,8 +154,8 @@ perl {abs_bin}/asv-generate.pl table.rechim.xls asv.table asv.fa
 sed -i 's/"//g' asv_table.tmp.xls
 {abs_bin}/sample_order.pl asv_table.tmp.xls {abs_raw} asv_table.xls
 rm asv_table.tmp.xls
-
-{abs_bin}/assign_taxonomy.py -m uclust -i asv_rep.fasta --similarity {similarity} -r {abs_db}/pathogen.fasta -t {abs_db}/pathogen.tax -o assign_taxonomy
+####assign_taxonomy.py depends on qiime1######
+assign_taxonomy.py -m uclust -i asv_rep.fasta --similarity {similarity} -r {abs_db}/pathogen.fasta -t {abs_db}/pathogen.tax -o assign_taxonomy
 {abs_bin}/taxaTable_byAss.pl asv_table.xls assign_taxonomy/asv_rep_tax_assignments.txt asv_taxa_table.xls
 biom convert -i asv_taxa_table.xls -o asv_taxa_table.biom --process-obs-metadata taxonomy --table-type "OTU table" --to-json
 rm -r assign_taxonomy
