@@ -17,6 +17,8 @@ Yang X, Jiang G, Zhang Y, et al. MBPD: A multiple bacterial pathogen detection p
 
 doi: 10.1002/imt2.82
 
+For any questions or issues regarding MBPD, please contact us at [xinrunyang@stu.njau.edu.cn](notion://www.notion.so/xinrunyang@stu.njau.edu.cn).
+
 ## Requirements
 
 1.	Python 3
