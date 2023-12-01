@@ -6,6 +6,7 @@
 - [Requirement](#requirement)
 - [Basic Usage](#basic-usage)
 - [Example dataset](#example-dataset)
+- [Contact](#Contact)
 
 ## Introduction
 
@@ -17,8 +18,6 @@ Yang X, Jiang G, Zhang Y, et al. MBPD: A multiple bacterial pathogen detection p
 
 doi: 10.1002/imt2.82
 
-For any questions or issues regarding MBPD, please contact us at xinrunyang@stu.njau.edu.cn.
-
 ## Requirements
 
 1.	Python 3
@@ -28,6 +27,7 @@ For any questions or issues regarding MBPD, please contact us at xinrunyang@stu.
 5.	R environment with packages (Rcpp, crayon, withr, ggplot2, BiocGenerics, S4Vectors, IRanges, XVector, GenomeInfoDb, matrixStats, Biobase, Matrix, latticeExtra, reshape2, dada2).
 
 Note: To ensure  the script works properly, you need to install qiime1 in the default environment and install qimme2 in another conda environment, and conda activate qiime2 to run the commands related to ASVs and taxonomic assignment.
+
 ## Basic Usage
 
 Using python3 MBPD.py -h to see the help page
@@ -65,3 +65,7 @@ Link：https://pan.baidu.com/s/1ceS9FzdNqvM-W7WORNAmtg code：436d
 python3 MBPD.py --file example/raw.fq.list --pwd new --similarity 0.9
 cd shell/
 sh S01.1.pathogen.sh
+
+## Contact
+
+For any questions or issues regarding MBPD, please contact us at xinrunyang@stu.njau.edu.cn.
