@@ -13,13 +13,15 @@
 ![MBPD](https://github.com/LorMeBioAI/MBPD/blob/main/pic/workflow.png)
 MBPD is a bioinformatics analysis pipeline used for the multiple defection of bacterial pathogens based on the 16S rRNA gene sequencing. We first developed a curated reference database of bacterial pathogens (MBPD database) from various literatures and databases, such as Bull et al. (2010, 2012, 2014), PATRIC, 16SPIP, FAPROTAX, etc. MBPD database consists of 72685 16S full-length sequences of animal, plant and zoonotic pathogen belonging to 18 phyla, 29 classes, 77 orders, 169 families, 440 genera and 1986 species. Clean data of 16S sequencing of both environmental and biological samples is processed using DADA2 pipeline  to obtain amplicon sequence variants (ASVs). Finally, sequences of ASV are aligned to the MBPD reference database using UCLUST algorithm with an optimal similarity threshold according to the full-length or variable sub-region of 16S.
 
+The new MBPD database containing pathogens and nonpathogens is available on Zenodo(https://zenodo.org/records/10888870).
+
 ## Citation
 
 If you are using MBPD in your research, please cite the following paper:
 
 Yang X, Jiang G, Zhang Y, et al. MBPD: A multiple bacterial pathogen detection pipeline for one health practices, iMeta 2023;2:e82.
 
-doi: 10.1002/imt2.82
+Link: https://onlinelibrary.wiley.com/doi/10.1002/imt2.82
 
 ## Requirements
 
