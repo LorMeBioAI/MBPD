@@ -58,6 +58,7 @@ Step 3: choose the appropriate threshold for pathogen identification
 Using following command, and run the script of S01.1.symbolic_links.sh, S01.1.pathogen.part1.sh and S01.1.pathogen.part2.sh in shell folder. 
 
 __Note: S01.1.pathogen.part1.sh depends on QIIME2 environment, and S01.1.pathogen.part2.sh depends on QIIME1 environment, so we recommend you to create 2 conda environment to run these two scripts.__
+If you don't want create two environment, we also provide a blast-based method for taxonomy assignment: python3 MBPD2.py --file raw.fq.list --pwd new --similarity 0.9.
 
 python3 MBPD.py --file raw.fq.list --pwd new --similarity 0.9
 The output contains fasta file of ASV and table file of pathogenic taxonomy.
