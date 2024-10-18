@@ -53,9 +53,12 @@ Step 2: choose the output path
 --pwd Output path, default is current path
 
 Step 3: choose the appropriate threshold for pathogen identification
---similarity: The threshold of taxonomy classification based on uclust algorithm,sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.8, the similarity threshold is (0, 1).
+--similarity: The threshold of taxonomy classification based on uclust algorithm,sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.9, the similarity threshold is (0, 1).
 
-Using following command, and run the S01.1.pathogen.sh script in shell folder. 
+Using following command, and run the script of S01.1.symbolic_links.sh, S01.1.pathogen.part1.sh and S01.1.pathogen.part2.sh in shell folder. 
+
+Note: S01.1.pathogen.part1.sh depends on QIIME2 environment, and S01.1.pathogen.part2.sh depends on QIIME1 environment, so we recommend you to create 2 conda environment to run these two scripts.
+
 python3 MBPD.py --file raw.fq.list --pwd new --similarity 0.9
 The output contains fasta file of ASV and table file of pathogenic taxonomy.
 asv_taxa_table.xls: table files with taxa as rows and sample as columns.
@@ -69,8 +72,11 @@ Link：https://pan.baidu.com/s/1ceS9FzdNqvM-W7WORNAmtg code：436d
 
 python3 MBPD.py --file example/raw.fq.list --pwd new --similarity 0.9
 cd shell/
-sh S01.1.pathogen.sh
-
+sh S01.1.symbolic_links.sh
+conda activate qiime2
+sh S01.1.pathogen.part1.sh
+conda activate qiime1
+S01.1.pathogen.part2.sh
 ## Contact
 
 For any questions or issues regarding MBPD, please contact us at xinrunyang@stu.njau.edu.cn.
