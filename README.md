@@ -73,9 +73,13 @@ Link：https://pan.baidu.com/s/1ceS9FzdNqvM-W7WORNAmtg code：436d
 python3 MBPD.py --file example/raw.fq.list --pwd new --similarity 0.9
 cd shell/
 sh S01.1.symbolic_links.sh
+
 conda activate qiime2
+
 sh S01.1.pathogen.part1.sh
+
 conda activate qiime1
+
 S01.1.pathogen.part2.sh
 ## Contact
 
