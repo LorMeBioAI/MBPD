@@ -39,7 +39,7 @@ def mkdir(path):
 """
 abs=os.path.split(os.path.realpath(__file__))[0]
 abs_raw=os.path.realpath(args.file)
-abs_db=abs+"/DB"
+abs_db=abs+"/db"
 abs_bin=abs+"/bin"
 similarity=args.similarity
 print(f"""
