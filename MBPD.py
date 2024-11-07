@@ -65,7 +65,7 @@ Rscript {abs_shell}S01.1.dada2.r
 perl {abs_bin}/dada2normal.pl table.rechim.xls
 perl {abs_bin}/asv-generate.pl table.rechim.xls asv.table asv.fa
 sed -i 's/"//g' asv_table.tmp.xls
-{abs_bin}/sample_order.pl asv_table.tmp.xls {abs_raw} asv_table.xls
+perl {abs_bin}/sample_order.pl asv_table.tmp.xls {abs_raw} asv_table.xls
 rm asv_table.tmp.xls
 
 echo "First part of the script completed successfully."
