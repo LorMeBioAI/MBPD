@@ -76,8 +76,10 @@ echo "First part of the script completed successfully."
 with open(mode.format("pathogen.part2") + '.sh', 'w', encoding='utf-8') as f2:
     content2 = f"""
 cd {PWD}01.ASV.tax/
-####assign_taxonomy.py depends on qiime1; conda activate qiime1######
-assign_taxonomy.py -m uclust -i asv_rep.fasta --similarity {similarity} -r {abs_db}/pathogen.fasta -t {abs_db}/pathogen.tax -o assign_taxonomy
+##########
+{abs_bin}/uclust --input asv_rep.fasta --id {similarity} --rev --maxaccepts 3 --allhits --libonly --lib {abs_db}/pathogen.fasta --uc asv_rep_tax_assignments.uc
+mkdir -p assign_taxonomy
+python {abs_bin}/asv_rep_tax_assignments.py -t {abs_db}/pathogen.tax -u asv_rep_tax_assignments.uc -o ./asv_rep_tax_assignments.txt
 {abs_bin}/taxaTable_byAss.pl asv_table.xls assign_taxonomy/asv_rep_tax_assignments.txt asv_taxa_table.xls
 biom convert -i asv_taxa_table.xls -o asv_taxa_table.biom --process-obs-metadata taxonomy --table-type "OTU table" --to-json
 rm -r assign_taxonomy
