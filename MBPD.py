@@ -77,6 +77,7 @@ with open(mode.format("pathogen.part2") + '.sh', 'w', encoding='utf-8') as f2:
     content2 = f"""
 cd {PWD}01.ASV.tax/
 ##########
+chmod 777 {abs_bin}/uclust
 {abs_bin}/uclust --input asv_rep.fasta --id {similarity} --rev --maxaccepts 3 --allhits --libonly --lib {abs_db}/pathogen.fasta --uc asv_rep_tax_assignments.uc
 mkdir -p assign_taxonomy
 python {abs_bin}/asv_rep_tax_assignments.py -t {abs_db}/pathogen.tax -u asv_rep_tax_assignments.uc -o ./asv_rep_tax_assignments.txt
