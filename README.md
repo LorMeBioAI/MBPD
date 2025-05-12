@@ -77,8 +77,6 @@ conda activate qiime2
 
 sh S01.1.pathogen.part1.sh
 
-conda activate qiime1
-
 S01.1.pathogen.part2.sh
 ## Contact
 
