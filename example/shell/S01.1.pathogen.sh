@@ -28,7 +28,9 @@ sed -i 's/"//g' asv_table.tmp.xls
 rm asv_table.tmp.xls
 
 biom convert -i asv_table.xls -o asv_table.biom --table-type "OTU table" --to-json
-/mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/bin/assign_taxonomy.py -m uclust -i asv_rep.fasta --similarity 0.9 -r /mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/DB/pathogen.fasta -t /mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/DB/pathogen.tax -o assign_taxonomy
+/mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/bin/uclust --input asv_rep.fasta --id 0.9 --rev --maxaccepts 3 --allhits --libonly --lib /mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/DB/pathogen.fasta --uc asv_rep_tax_assignments.uc
+mkdir -p assign_taxonomy
+python /mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/bin/asv_rep_tax_assignments.py -t /mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/DB/pathogen.tax -u asv_rep_tax_assignments.uc -o ./assign_taxonomy/asv_rep_tax_assignments.txt
 /mnt/sdd/wangyu/yxr/pathogen_16s/shrimp/MBPD/bin/taxaTable_byAss.pl asv_table.xls assign_taxonomy/asv_rep_tax_assignments.txt asv_taxa_table.xls
 biom convert -i asv_taxa_table.xls -o asv_taxa_table.biom --process-obs-metadata taxonomy --table-type "OTU table" --to-json
 rm -r assign_taxonomy
