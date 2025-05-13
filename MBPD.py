@@ -79,9 +79,8 @@ cd {PWD}01.ASV.tax/
 ##########
 chmod 777 {abs_bin}/uclust
 {abs_bin}/uclust --input asv_rep.fasta --id {similarity} --rev --maxaccepts 3 --allhits --libonly --lib {abs_db}/pathogen.fasta --uc asv_rep_tax_assignments.uc
-mkdir -p assign_taxonomy
 python {abs_bin}/asv_rep_tax_assignments.py -t {abs_db}/pathogen.tax -u asv_rep_tax_assignments.uc -o ./asv_rep_tax_assignments.txt
-{abs_bin}/taxaTable_byAss.pl asv_table.xls assign_taxonomy/asv_rep_tax_assignments.txt asv_taxa_table.xls
+{abs_bin}/taxaTable_byAss.pl asv_table.xls asv_rep_tax_assignments.txt asv_taxa_table.xls
 biom convert -i asv_taxa_table.xls -o asv_taxa_table.biom --process-obs-metadata taxonomy --table-type "OTU table" --to-json
 rm -r assign_taxonomy
 
