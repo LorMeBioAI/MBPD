@@ -77,7 +77,7 @@ conda activate qiime2
 
 sh S01.1.pathogen.part1.sh
 
-S01.1.pathogen.part2.sh
+sh S01.1.pathogen.part2.sh
 ## Contact
 
 For any questions or issues regarding MBPD, please contact us at xinrunyang@stu.njau.edu.cn.
