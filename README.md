@@ -65,7 +65,7 @@ asv.fa: the fasta file of ASVs
 
 Here, we provide a 16S rDNA V4 region data of 20 samples.
 You can download the data in the link below, then unzip them.
-Link：https://pan.baidu.com/s/1ceS9FzdNqvM-W7WORNAmtg code：436d 
+Link：https://zenodo.org/records/17055172
 
 python3 MBPD.py --file example/raw.fq.list --pwd new --similarity 0.9
 
