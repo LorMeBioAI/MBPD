@@ -7,14 +7,14 @@ open OB, ">$ARGV[2]" or die "can not open file: $ARGV[2]\n";
 $line=<IN>;chomp $line;$line=~s/\"//g;
 print OA "ID\t$line\n";
 while($line=<IN>){
-	chomp $line;
-	$line=~s/\"//g;
-	@inf=split /\t/,$line;
-	$n++;
-	$temp=sprintf("%06s","$n");
-	print OB ">ASV$temp\n$inf[0]\n";
-	$line=join("\t",@inf[1..$#inf]);
-	print OA "ASV$temp\t$line\n";
+        chomp $line;
+        $line=~s/\"//g;
+        @inf=split /\t/,$line;
+        $n++;
+        $temp=sprintf("%06s","$n");
+        print OB ">ASV$temp\n$inf[0]\n";
+        $line=join("\t",@inf[1..$#inf]);
+        print OA "ASV$temp\t$line\n";
 }
 close IN;
 close OA;
