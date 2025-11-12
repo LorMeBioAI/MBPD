@@ -1,0 +1,20 @@
+name: MBPD
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # 生信分析核心工具
+  - bioconductor-dada2=1.30.0
+  - blast
+  - perl
+  - usearch
+
+  # Python 环境
+  - python=3.10
+  - pandas
+
+  # R 环境
+  - r-base=4.3.3
+  - r-dplyr
