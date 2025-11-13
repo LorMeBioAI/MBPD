@@ -23,24 +23,37 @@ Yang X, Jiang G, Zhang Y, et al. MBPD: A multiple bacterial pathogen detection p
 
 Link: https://onlinelibrary.wiley.com/doi/10.1002/imt2.82
 
-## Requirements
+## Installation& Requirements
+We now support installing with conda directly:
+```
+git clone https://github.com/LorMeBioAI/MBPD
+cd MBPD
+conda env create -f MBPD_env.yml
+conda activate MBPD
+sh MBPD_prepare.sh
+```
 
+The detailed dependencies are followed:
 1.	Python 3
 2.	QIIME2
 3.	Biom
 4.	R environment with packages (Rcpp, crayon, withr, ggplot2, BiocGenerics, S4Vectors, IRanges, XVector, GenomeInfoDb, matrixStats, Biobase, Matrix, latticeExtra, reshape2, dada2).
 
-Note: Please give bin/ulust enough permissions. For example, run 'chmod 777 uclust'. Additionally, we also provide a blast-based method for taxonomy assignment: python3 MBPD2.py --file raw.fq.list --pwd new --similarity 0.9.
+Note: Please give bin/ulust enough permissions. For example, run 'chmod 777 uclust'. Additionally, we also provide a blast-based method for taxonomy assignment.
 
 ## Basic Usage
 
-Using python3 MBPD.py -h to see the help page
+Using MBPD_integrated -h to see the help page
 
-optional arguments:
-  -h, --help	show the help page of MBPD
-  --file FILE	Sample table
-  --pwd PWD 	Output path, default is current path
-  --similarity SIMILARITY	The similarity of uclust,sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.8.
+options:
+  -h, --help            show this help message and exit
+  --file FILE           Sample table
+  --pwd PWD             Output path, default is current path
+  --tool TOOL           taxonomic assignment tools: uclust or blastn
+  --db DB               reference database: full-db or pathogen-only
+  --similarity SIMILARITY
+                        Recommended similarity: 0.9 for V1-V2/V4, 0.8 for others, default=0.8
+
 
 Step 1: manually create a sample table 
 --file: a sample table as an input, e.g., raw.fq.list, the separator is line break. Here is an example, fastq files are sequences removed primer and barcode)
