@@ -3,11 +3,11 @@
 ## Contents
 
 - [Introduction](#introduction)
-- [Citation](#Citation)
-- [Requirement](#requirement)
+- [Citation](#citation)
+- [Installation & Requirements](#installation--requirements)
 - [Basic Usage](#basic-usage)
 - [Example dataset](#example-dataset)
-- [Contact](#Contact)
+- [Contact](#contact)
 
 ## Introduction
 ![MBPD](https://github.com/LorMeBioAI/MBPD/blob/main/pic/workflow.png)
@@ -23,7 +23,7 @@ Yang X, Jiang G, Zhang Y, et al. MBPD: A multiple bacterial pathogen detection p
 
 Link: https://onlinelibrary.wiley.com/doi/10.1002/imt2.82
 
-## Installation& Requirements
+## Installation & Requirements
 We now support installing with conda directly:
 ```
 git clone https://github.com/LorMeBioAI/MBPD
@@ -39,18 +39,25 @@ The detailed dependencies are followed:
 3.	Biom
 4.	R environment with packages (Rcpp, crayon, withr, ggplot2, BiocGenerics, S4Vectors, IRanges, XVector, GenomeInfoDb, matrixStats, Biobase, Matrix, latticeExtra, reshape2, dada2).
 
-Note: Please give bin/ulust enough permissions. For example, run 'chmod 777 uclust'. Additionally, we also provide a blast-based method for taxonomy assignment.
+Note: Please give bin/uclust enough permissions. For example, run 'chmod 777 uclust'. Additionally, we also provide a blast-based method for taxonomy assignment.
 
 ## Basic Usage
 
 Using MBPD_integrated -h to see the help page
 
+
 options:
+
   -h, --help            show this help message and exit
+  
   --file FILE           Sample table
+  
   --pwd PWD             Output path, default is current path
+  
   --tool TOOL           taxonomic assignment tools: uclust or blastn
+  
   --db DB               reference database: full-db or pathogen-only
+  
   --similarity SIMILARITY
                         Recommended similarity: 0.9 for V1-V2/V4, 0.8 for others, default=0.8
 
@@ -69,6 +76,7 @@ Step 3: choose the sequences taxonomic assignment algorithm
 
 Step 4: choose the reference database 
 --db: We here provide two versions, "pahogen-only" and "full-db". "pahogen-only" only containing information about pathogenic bacteria, "full-db" containing both pathogenic and nonpathogenic species and were labeled with "t__nonpathogenic", "t__Animal", and "t__Human".
+
 __*if you want to use the "full-db", download the database from Zenodo(https://doi.org/10.5281/zenodo.10888870) and move to {your_dir}/MBPD/db.__
  
 Step 5: choose the appropriate threshold for pathogen identification
@@ -87,17 +95,20 @@ Here, we provide a 16S rDNA V4 region data of 20 samples.
 You can download the data in the link below, then unzip them.
 Link：https://zenodo.org/records/17055172
 
-python3 MBPD.py --file example/raw.fq.list --pwd new --similarity 0.9
+```
+MBPD_integrated --file fq.list --pwd combination_test_uclust --similarity 0.9 --db pathogen-only --tool uclust
+```
 
+If the script does not produce any results, try as followed to see error detail:
+```
 cd shell/
-
 sh S01.1.symbolic_links.sh
-
 conda activate qiime2
-
 sh S01.1.pathogen.part1.sh
-
 sh S01.1.pathogen.part2.sh
+```
+And we are also very glad to help you solve all your problems.
+
 ## Contact
 
 For any questions or issues regarding MBPD, please contact us at xinrunyang@stu.njau.edu.cn or shiny@stu.njau.edu.cn.
