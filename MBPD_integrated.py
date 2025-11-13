@@ -7,10 +7,10 @@ import subprocess
 
 # 添加参数模块
 parser = argparse.ArgumentParser(description='BacPD')
-parser.add_argument('--file', help='Sample table')
+parser.add_argument('--file*', help='Sample table')
 parser.add_argument('--pwd', type=str, default='./', help='Output path, default is current path')
-parser.add_argument('--tool', help='taxonomic assignment tools: uclust or blastn')
-parser.add_argument('--db', help='reference database: full-db or pathogen-only')
+parser.add_argument('--tool', default='uclust', help='taxonomic assignment tools: uclust or blastn (default: uclust)')
+parser.add_argument('--db', default='pathogen-only', help='reference database: full-db or pathogen-only (default: pathogen-only)')
 parser.add_argument('--similarity', type=float, default=0.9, 
                     help='Recommended similarity: 0.9 for V1-V2/V4, 0.8 for others, default=0.8')
 args = parser.parse_args()
