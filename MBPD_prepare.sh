@@ -17,6 +17,14 @@ python "$SCRIPT_DIR/MBPD2.py" "$@"
 EOF
 chmod +x MBPD2
 
+cat << 'EOF' > MBPD2
+#!/usr/bin/env bash
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+python "$SCRIPT_DIR/MBPD_integrated.py "$@"
+EOF
+chmod +x MBPD_integrated
+
 # link to conda bin
 if [ -z "$CONDA_PREFIX" ]; then
     echo "[ERROR] Please activate your conda environment before running this script."
@@ -25,3 +33,4 @@ fi
 
 ln -sf "$(realpath ./MBPD)" "$CONDA_PREFIX/bin/MBPD"
 ln -sf "$(realpath ./MBPD2)" "$CONDA_PREFIX/bin/MBPD"
+ln -sf "$(realpath ./MBPD_integrated)" "$CONDA_PREFIX/bin/MBPD"
