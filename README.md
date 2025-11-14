@@ -99,11 +99,10 @@ Link：https://zenodo.org/records/17055172
 MBPD_integrated --file fq.list --pwd combination_test_uclust --similarity 0.9 --db pathogen-only --tool uclust
 ```
 
-If the script does not produce any results, try as followed to see error detail:
+If the script does not produce any results, try as followed to see detailed error:
 ```
 cd shell/
 sh S01.1.symbolic_links.sh
-conda activate qiime2
 sh S01.1.pathogen.part1.sh
 sh S01.1.pathogen.part2.sh
 ```
