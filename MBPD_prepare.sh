@@ -1,4 +1,4 @@
-unzip ./db/pathogen.fasta.zip ./db/
+unzip ./db/pathogen.fasta.zip -d ./db/
 #tar -zxvf ./db/silva_MBPD.fasta.tar.gz
 
 # create launcher
