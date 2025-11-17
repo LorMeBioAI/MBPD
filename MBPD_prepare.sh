@@ -1,5 +1,6 @@
 unzip ./db/pathogen.fasta.zip ./db/
-tar -zxvf ./db/silva_MBPD.fasta.tar.gz
+#tar -zxvf ./db/silva_MBPD.fasta.tar.gz
+
 # create launcher
 #cat << 'EOF' > MBPD
 ##!/usr/bin/env bash
@@ -21,7 +22,7 @@ cat << 'EOF' > MBPD_integrated
 #!/usr/bin/env bash
 SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
 SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
-python "$SCRIPT_DIR/MBPD_integrated.py "$@"
+python "$SCRIPT_DIR/MBPD_integrated.py" "$@"
 EOF
 chmod +x MBPD_integrated
 
