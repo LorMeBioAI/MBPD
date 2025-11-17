@@ -5,7 +5,7 @@ import sys
 import time
 import subprocess
 
-# 添加参数模块
+# configurations
 parser = argparse.ArgumentParser(description='BacPD')
 parser.add_argument('--file*', help='Sample table')
 parser.add_argument('--pwd', type=str, default='./', help='Output path, default is current path')
@@ -29,7 +29,7 @@ def mkdir(path):
     else:
         print(f"--- Folder already exists: {path} ---")
 
-# 获取软件路径，转换为绝对路径
+# get software direction and conver to absolute direction
 abs_path = os.path.split(os.path.realpath(__file__))[0]
 abs_raw = os.path.realpath(args.file)
 abs_db = os.path.join(abs_path, "db")
@@ -41,25 +41,25 @@ The PWD of workplace is: {abs_path}
 The PWD of raw.fq.list is: {abs_raw}
 """)
 
-# 创建文件夹和输出路径
+# create output path
 mkdir(args.pwd)
 os.chdir(args.pwd)
 mkdir("00.Data")
 mkdir("01.ASV.tax")
 mkdir("shell")
 
-# 读入数据表
+# read metadata
 raw_fq_list = pd.read_csv(abs_raw, sep="\t", header=None)
 ID_list = raw_fq_list[0]
 fq_list = raw_fq_list[1]
 num = ID_list.shape[0]
 
-# 常用路径设置
+# commonly used path
 PWD = os.getcwd() + "/"
 abs_shell = PWD + "shell/"
 mode = PWD + "shell/S01.1.{}"
 
-# 生成第一部分脚本 (S01.1.pathogen.part1.sh)
+# part1 (S01.1.pathogen.part1.sh)
 with open(mode.format("pathogen.part1") + '.sh', 'w', encoding='utf-8') as f1:
     content1 = f"""
 cd {PWD}01.ASV.tax/
@@ -82,7 +82,7 @@ elif args.db == 'pathogen-only':
     db_tax = f"{abs_db}/pathogen.tax"
 
 if args.tool == 'uclust':
-# 生成第二部分脚本 (S01.1.pathogen.part2.sh)
+# part2 (S01.1.pathogen.part2.sh)
     with open(mode.format("pathogen.part2") + '.sh', 'w', encoding='utf-8') as f2:
         content2 = f"""
 cd {PWD}01.ASV.tax/
@@ -111,7 +111,7 @@ sed -i 's/"//g' asv_taxa_table_blast.txt
 echo "Second part of the script completed successfully."
 """
         f2.write(content2)
-# R的脚本      
+# R 4 join      
 with open(mode.format("blast_analysis") + '.r', 'w', encoding='utf-8') as r_file:
     r_content = f"""
 library(dplyr)
@@ -122,7 +122,7 @@ write.table(asv, file = "asv_taxa_table_blast.txt", sep = "\\t", row.names = FAL
 """
     r_file.write(r_content)
 
-# 生成 R 脚本 (S01.1.dada2.r)
+# R for dada2 (S01.1.dada2.r)
 with open(mode.format("dada2") + '.r', 'w', encoding='utf-8') as r_file:
     r_content = f"""
 library(dada2)
@@ -149,13 +149,13 @@ write.table(t(seqtabrechim),"table.rechim.xls",sep="\t")
 """
     r_file.write(r_content)
 
-# 生成符号链接的脚本
+# ln to normalize and start
 with open(mode.format("symbolic_links") + '.sh', 'w', encoding='utf-8') as f_link:
     for i in range(num):
         f_link.write(f'ln -s {fq_list[i]} {PWD}00.Data/{ID_list[i]}.fq.gz\n')
 
 
-# 运行第一部分和第二部分脚本
+# run part1 and part2
 def run_shell_script(script):
     result = subprocess.run(['bash', script], capture_output=True, text=True)
     print(result.stdout)
