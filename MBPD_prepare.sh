@@ -8,7 +8,7 @@ unzip ./db/pathogen.fasta.zip -d ./db/
 #SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 #python "$SCRIPT_DIR/MBPD.py" "$@"
 #EOF
-chmod +x MBPD
+#chmod +x MBPD
 
 #cat << 'EOF' > MBPD2
 ##!/usr/bin/env bash
