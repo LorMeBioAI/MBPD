@@ -94,6 +94,7 @@ asv.fa: the fasta file of ASVs
 Here, we provide a 16S rDNA V4 region data of 20 samples.
 You can download the data in the link below, then unzip them.
 Link：https://zenodo.org/records/17055172
+__Note: Please revise raw.fq.list based on your fastq path, sep='\t'!__ 
 
 ```
 cd example/
