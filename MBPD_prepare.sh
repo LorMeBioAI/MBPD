@@ -34,4 +34,4 @@ fi
 
 #ln -sf "$(realpath ./MBPD)" "$CONDA_PREFIX/bin/MBPD"
 #ln -sf "$(realpath ./MBPD2)" "$CONDA_PREFIX/bin/MBPD"
-ln -sf "$(realpath ./MBPD_integrated)" "$CONDA_PREFIX/bin/MBPD"
+ln -sf "$(realpath ./MBPD_integrated)" "$CONDA_PREFIX/bin/MBPD_integrated"
