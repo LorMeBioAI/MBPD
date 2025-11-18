@@ -59,35 +59,26 @@ options:
   --db DB               reference database: full-db or pathogen-only
   
   --similarity SIMILARITY
-                        Recommended similarity: 0.9 for V1-V2/V4, 0.8 for others, default=0.8
-
+                        Recommended similarity of Uclust: 0.9 for V1-V2/V4, 0.8 for others, default=0.8
+                        Recommended similarity of blastn: 0.97
 
 Step 1: manually create a sample table (tab delimiter)
 --file: a sample table as an input, e.g., raw.fq.list, the separator is line break. Here is an example, fastq files are sequences removed primer and barcode)
 
-Sample1 /path/valid/Sample1.fq  
-Sample2 /path/valid/Sample2.fq
+Sample1 /path/Sample1.fq  
+Sample2 /path/Sample2.fq
 
 Step 2: choose the output path
 --pwd Output path, default is current path
 
 Step 3: choose the sequences taxonomic assignment algorithm
---tool: The algorithm would be used for ASVs alignment. Uclust is faster in usual.
+--tool: The algorithm would be used for ASVs alignment. Uclust or blastn.
 
 Step 4: choose the reference database 
 --db: We here provide two versions, "pahogen-only" and "full-db". "pahogen-only" only containing information about pathogenic bacteria, "full-db" containing both pathogenic and nonpathogenic species and were labeled with "t__nonpathogenic", "t__Animal", and "t__Human".
 
 __*if you want to use the "full-db", download the database from Zenodo(https://doi.org/10.5281/zenodo.10888870) and move to {your_dir}/MBPD/db.__
  
-Step 5: choose the appropriate threshold for pathogen identification
---similarity: The threshold of taxonomy classification based on uclust algorithm,sequencing regions of V1-V2 or V4 are recommended using 0.9,others are ecommended using 0.8,default=0.9, the similarity threshold is (0, 1).
-
-Using following command, and run the script of S01.1.symbolic_links.sh, S01.1.pathogen.part1.sh and S01.1.pathogen.part2.sh in shell folder. 
-
-python3 MBPD.py --file raw.fq.list --pwd new --similarity 0.9
-The output contains fasta file of ASV and table file of pathogenic taxonomy.
-asv_taxa_table.xls: table files with taxa as rows and sample as columns.
-asv.fa: the fasta file of ASVs
 
 ## Example Dataset
 
