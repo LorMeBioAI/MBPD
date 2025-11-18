@@ -7,7 +7,7 @@ import subprocess
 
 # configurations
 parser = argparse.ArgumentParser(description='BacPD')
-parser.add_argument('--file*', help='Sample table')
+parser.add_argument('--file', help='Sample table')
 parser.add_argument('--pwd', type=str, default='./', help='Output path, default is current path')
 parser.add_argument('--tool', default='uclust', help='taxonomic assignment tools: uclust or blastn (default: uclust)')
 parser.add_argument('--db', default='pathogen-only', help='reference database: full-db or pathogen-only (default: pathogen-only)')
