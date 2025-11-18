@@ -43,7 +43,7 @@ Note: Please give bin/uclust enough permissions. For example, run 'chmod 777 ucl
 
 ## Basic Usage
 
-Using MBPD_integrated -h to see the help page
+Using __MBPD_integrated -h__ to see the help page
 
 
 options:
@@ -96,7 +96,8 @@ You can download the data in the link below, then unzip them.
 Link：https://zenodo.org/records/17055172
 
 ```
-MBPD_integrated --file fq.list --pwd combination_test_uclust --similarity 0.9 --db pathogen-only --tool uclust
+cd example/
+MBPD_integrated --file raw.fq.list --pwd combination_test_uclust --similarity 0.9 --db pathogen-only --tool uclust
 ```
 
 If the script does not produce any results, try as followed to see detailed error:
