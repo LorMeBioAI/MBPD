@@ -93,7 +93,7 @@ cd example/
 MBPD_integrated --file raw.fq.list --pwd combination_test_uclust --similarity 0.9 --db pathogen-only --tool uclust
 ```
 
-If the script does not produce any results, try as followed to see detailed error:
+__If the script does not produce any results, try as followed to see detailed error:__
 ```
 cd shell/
 sh S01.1.symbolic_links.sh
