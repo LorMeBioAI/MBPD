@@ -75,7 +75,7 @@ Step 3: choose the sequences taxonomic assignment algorithm
 --tool: The algorithm would be used for ASVs alignment. Uclust or blastn.
 
 Step 4: choose the reference database 
---db: We here provide two versions, "pahogen-only" and "full-db". "pahogen-only" only containing information about pathogenic bacteria, "full-db" containing both pathogenic and nonpathogenic species and were labeled with "t__nonpathogenic", "t__Animal", and "t__Human".
+--db: We here provide two versions, "pahogen-only" and "full-db". "pahogen-only" only containing information about pathogenic bacteria, "full-db" containing both pathogenic and nonpathogenic species and were labeled with "t__nonpathogen", "t__Animal", "t__Zoonotic", and "t__Plant".
 
 __*if you want to use the "full-db", download the database from Zenodo(https://doi.org/10.5281/zenodo.10888870) and move to {your_dir}/MBPD/db.__
  
